@@ -2,11 +2,25 @@ var pare;
 var segundos = 0;
 var minutos = 0;
 
-function iniciar() {}
+function iniciar() {
+  document.getElementById('parar').style = 'display:inline';
+  document.getElementById('iniciar').style = 'display: none';
+  document.getElementById('reiniciar').style = 'display: none';
+  document.getElementById('iniciar').innerHTML = 'Continuar';
 
-function parar() {}
+  pare = setInterval('atualizar()', 1000);
+}
 
-function reiniciar() {}
+function parar() {
+  clearInterval(pare);
+  document.getElementById('parar').style = 'display:none';
+  document.getElementById('iniciar').style = 'display:inline';
+  document.getElementById('reiniciar').style = 'display:inline';
+}
+
+function reiniciar() {
+  document.location.reload();
+}
 
 function atualizar() {
   segundos++;
